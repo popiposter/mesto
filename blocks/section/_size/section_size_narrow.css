@@ -1,0 +1,9 @@
+.section_size_narrow {
+  max-width: 68.75%;
+}
+
+@media screen and (max-width: 460px) {
+  .section_size_narrow {
+    max-width: 88.125%;
+  }
+}
