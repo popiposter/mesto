@@ -4,8 +4,9 @@
   padding: 0;
   background-color: rgba(0, 0, 0, 0);
   background-image: url(../../../images/card-favorite.svg);
-  background-position: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   border: none;
+  border-radius: 0;
   cursor: pointer;
 }

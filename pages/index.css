@@ -32,4 +32,5 @@
 @import url(../blocks/cards/__list-item-title/cards__list-item-title.css);
 @import url(../blocks/cards/__list-item-fav-button/cards__list-item-fav-button.css);
 
-@import url(../blocks/page/__footer/page__footer.css);
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
