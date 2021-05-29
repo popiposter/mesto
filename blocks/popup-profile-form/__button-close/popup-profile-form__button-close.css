@@ -1,0 +1,22 @@
+.popup-profile-form__button-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  transform: translate(100%, -100%);
+  background-image: url(../../../images/form-close.svg);
+  background-position: center;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .popup-profile-form__button-close {
+    width: 26px;
+    height: 26px;
+    transform: translate(0, -150%);
+    background-image: url(../../../images/form-close-small.svg);
+  }
+}

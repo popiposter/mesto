@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
   <link rel="stylesheet" href="./pages/index.css">
@@ -20,10 +19,13 @@
       <section class="profile section section_size_narrow content__section">
         <img src="./images/profile-avatar.jpg" alt="" class="profile__avatar">
         <div class="profile__info">
-          <h1 class="profile__title">Жак-Ив Кусто<button class="profile__edit-info"></button></h1>
+          <div class="profile__first-row">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="button profile__edit-info" aria-label="Редактировать профиль"></button>
+          </div>
           <p class="profile__about">Исследователь океана</p>
         </div>
-        <button class="profile__add"></button>
+        <button class="button profile__add" aria-label="Добавить"></button>
       </section>
       <section class="cards section section_size_narrow content__section">
         <ul class="cards__list">
@@ -31,42 +33,42 @@
             <img src="./images/card-vladivostok.jpg" alt="Владивосток" class="cards__list-item-image">
             <div class="cards__list-item-bottom">
               <h2 class="cards__list-item-title">Карачаевск</h2>
-              <button class="cards__list-item-fav-button"></button>
+              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
             </div>
           </li>
           <li class="cards__list-item">
             <img src="./images/card-khibiny.jpg" alt="Хибины" class="cards__list-item-image">
             <div class="cards__list-item-bottom">
               <h2 class="cards__list-item-title">Хибины</h2>
-              <button class="cards__list-item-fav-button"></button>
+              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
             </div>
           </li>
           <li class="cards__list-item">
             <img src="./images/card-dombay.jpg" alt="" class="cards__list-item-image">
             <div class="cards__list-item-bottom">
               <h2 class="cards__list-item-title">Домбай</h2>
-              <button class="cards__list-item-fav-button"></button>
+              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
             </div>
           </li>
           <li class="cards__list-item">
             <img src="./images/card-elbrus.jpg" alt="" class="cards__list-item-image">
             <div class="cards__list-item-bottom">
               <h2 class="cards__list-item-title">Гора Эльбрус</h2>
-              <button class="cards__list-item-fav-button"></button>
+              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
             </div>
           </li>
           <li class="cards__list-item">
             <img src="./images/card-vladivostok.jpg" alt="" class="cards__list-item-image">
             <div class="cards__list-item-bottom">
               <h2 class="cards__list-item-title">Владивосток</h2>
-              <button class="cards__list-item-fav-button"></button>
+              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
             </div>
           </li>
           <li class="cards__list-item">
             <img src="./images/card-karachaevsk.jpg" alt="" class="cards__list-item-image">
             <div class="cards__list-item-bottom">
               <h2 class="cards__list-item-title">Карачаево-Черкессия</h2>
-              <button class="cards__list-item-fav-button"></button>
+              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
             </div>
           </li>
         </ul>
@@ -76,6 +78,21 @@
       <p class="footer__copyright">&copy; 2020 Сушков Антон</p>
     </footer>
   </div>
+
+  <section class="popup-profile-form">
+    <div class="popup-profile-form__container">
+      <button class="button popup-profile-form__button-close" aria-label="Закрыть"></button>
+      <h2 class="popup-profile-form__title">Редактировать профиль</h2>
+      <fieldset class="popup-profile-form__ctrl-texts">
+        <input class="form-input-text popup-profile-form__item-name" type="text" id="name" name="name" placeholder="Имя"
+          required>
+        <input class="form-input-text popup-profile-form__item-about" type="text" id="about" name="about"
+          placeholder="О себе" required>
+      </fieldset>
+      <button class="button popup-profile-form__button-save">Сохранить</button>
+    </div>
+  </section>
+  <script src="./scripts/main.js"></script>
 </body>
 
 </html>

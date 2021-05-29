@@ -1,4 +1,5 @@
 .content__section {
   margin: 0 auto;
   width: 100%;
+  min-width: 0;
 }

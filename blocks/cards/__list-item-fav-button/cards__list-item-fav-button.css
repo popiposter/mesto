@@ -1,12 +1,13 @@
 .cards__list-item-fav-button {
   width: 22px;
   height: 19px;
-  padding: 0;
   background-color: rgba(0, 0, 0, 0);
   background-image: url(../../../images/card-favorite.svg);
   background-size: cover;
-  background-repeat: no-repeat;
   border: none;
   border-radius: 0;
-  cursor: pointer;
+}
+
+.cards__list-item-fav-button:hover {
+  opacity: 0.5;
 }
