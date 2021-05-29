@@ -1,5 +1,7 @@
 # Проект 4: Место
 
+[Ссылка на GH Pages](https://popiposter.github.io/mesto/index.html)
+
 ### Обзор
 
 - Используемые технологии
