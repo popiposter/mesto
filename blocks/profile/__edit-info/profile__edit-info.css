@@ -4,13 +4,17 @@
   margin: 0 18px;
   background-color: #000;
   background-image: url(../../../images/profile-edit.svg);
-  background-size: cover;
-  border: none;
+  background-position: center;
+  border: 1px solid #fff;
+  border-radius: 0;
   flex-shrink: 0;
 }
 
 @media screen and (max-width: 600px) {
   .profile__edit-info {
+    width: 18px;
+    height: 18px;
     margin-left: 10px;
+    background-image: url(../../../images/profile-edit-small.svg);
   }
 }

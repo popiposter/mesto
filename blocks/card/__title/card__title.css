@@ -1,7 +1,7 @@
-.cards__list-item-title {
+.card__title {
   max-width: 198px;
   margin: 0;
-  padding: 25px 0;
+  padding: 22px 0 28px;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;

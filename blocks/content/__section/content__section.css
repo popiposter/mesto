@@ -2,4 +2,11 @@
   margin: 0 auto;
   width: 100%;
   min-width: 0;
+  max-width: 68.75%;
+}
+
+@media screen and (max-width: 460px) {
+  .content__section {
+    max-width: 88.125%;
+  }
 }

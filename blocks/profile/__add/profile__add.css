@@ -16,5 +16,6 @@
     margin-top: 36px;
     width: 100%;
     max-width: 282px;
+    background-image: url(../../../images/profile-add-small.svg);
   }
 }

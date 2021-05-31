@@ -1,38 +1,37 @@
 let buttonEditProfile = document.querySelector('.profile__edit-info');
-let formProfile = document.querySelector('.popup-profile-form');
-let buttonCloseProfile = document.querySelector('.popup-profile-form__button-close');
-let buttonSaveProfile = document.querySelector('.popup-profile-form__button-save');
+let popup = document.querySelector('.popup');
+let buttonClosePopup = document.querySelector('.popup__button-close');
+let popupForm = document.querySelector('.popup__form');
 
 let profileTitle = document.querySelector('.profile__title');
 let profileAbout = document.querySelector('.profile__about');
 
-let inputName = document.querySelector('.popup-profile-form__item-name');
-let inputAbout = document.querySelector('.popup-profile-form__item-about');
+let inputName = document.querySelector('.popup__form-input_id_name');
+let inputAbout = document.querySelector('.popup__form-input_id_about');
 
-function toggleFormVisibility() {
-  formProfile.classList.toggle('popup-profile-form_oppened');
-}
+let classPopupOppenedName = 'popup_oppened';
 
-function fillFormInputValues() {
+function openPopup() {
   inputName.value = profileTitle.textContent;
   inputAbout.value = profileAbout.textContent;
+
+  popup.classList.add(classPopupOppenedName);
 }
 
-function setProfileTexts() {
+function closePopup() {
+  popup.classList.remove(classPopupOppenedName);
+}
+
+function saveProfile(evt) {
+  evt.preventDefault();
+
   profileTitle.textContent = inputName.value;
   profileAbout.textContent = inputAbout.value;
+
+  closePopup();
 }
 
-function openProfileForm() {
-  toggleFormVisibility();
-  fillFormInputValues();
-}
+buttonEditProfile.addEventListener('click', openPopup);
+buttonClosePopup.addEventListener('click', closePopup);
+popupForm.addEventListener('submit', saveProfile);
 
-function saveProfile() {
-  setProfileTexts();
-  toggleFormVisibility();
-}
-
-buttonEditProfile.addEventListener('click', openProfileForm);
-buttonCloseProfile.addEventListener('click', toggleFormVisibility);
-buttonSaveProfile.addEventListener('click', saveProfile);

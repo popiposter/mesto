@@ -1,13 +1,15 @@
 .page__header {
   width: 100%;
-  min-height: 74px;
+  max-width: 68.75%;
   margin: 0 auto;
+  padding-bottom: 40px;
   border-bottom: 1px solid rgb(84, 84, 84, 0.7);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 460px) {
   .page__header {
     padding-left: 27px;
     min-height: 56px;
+    max-width: 100%;
   }
 }

@@ -10,88 +10,92 @@
 
 <body class="page">
   <div class="page__container">
-    <header class="header section section_size_narrow section_mobile_small page__header">
+    <header class="header section page__header">
       <a href="#" class="header__logo">
-        <img src="./images/header-logo.svg" alt="Mesto Russia" class="header__logo-img">
+        <img src="./images/header-logo.svg" alt="Логотип Место Россия" class="header__logo-img">
       </a>
     </header>
     <main class="content page__content">
-      <section class="profile section section_size_narrow content__section">
-        <img src="./images/profile-avatar.jpg" alt="" class="profile__avatar">
+      <section class="profile section content__section">
+        <img src="./images/profile-avatar.jpg" alt="Аватар профиля" class="profile__avatar">
         <div class="profile__info">
           <div class="profile__first-row">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="button profile__edit-info" aria-label="Редактировать профиль"></button>
+            <button class="button profile__edit-info" type="button" aria-label="Редактировать профиль"></button>
           </div>
           <p class="profile__about">Исследователь океана</p>
         </div>
-        <button class="button profile__add" aria-label="Добавить"></button>
+        <button class="button profile__add" type="button" aria-label="Добавить"></button>
       </section>
-      <section class="cards section section_size_narrow content__section">
+      <section class="cards section content__section">
         <ul class="cards__list">
-          <li class="cards__list-item">
-            <img src="./images/card-vladivostok.jpg" alt="Владивосток" class="cards__list-item-image">
-            <div class="cards__list-item-bottom">
-              <h2 class="cards__list-item-title">Карачаевск</h2>
-              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
+          <li class="card">
+            <img src="./images/card-vladivostok.jpg" alt="Карачаевск" class="card__image">
+            <div class="card__bottom">
+              <h2 class="card__title">Карачаевск</h2>
+              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
             </div>
           </li>
-          <li class="cards__list-item">
-            <img src="./images/card-khibiny.jpg" alt="Хибины" class="cards__list-item-image">
-            <div class="cards__list-item-bottom">
-              <h2 class="cards__list-item-title">Хибины</h2>
-              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
+          <li class="card">
+            <img src="./images/card-khibiny.jpg" alt="Хибины" class="card__image">
+            <div class="card__bottom">
+              <h2 class="card__title">Хибины</h2>
+              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
             </div>
           </li>
-          <li class="cards__list-item">
-            <img src="./images/card-dombay.jpg" alt="" class="cards__list-item-image">
-            <div class="cards__list-item-bottom">
-              <h2 class="cards__list-item-title">Домбай</h2>
-              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
+          <li class="card">
+            <img src="./images/card-dombay.jpg" alt="Домбай" class="card__image">
+            <div class="card__bottom">
+              <h2 class="card__title">Домбай</h2>
+              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
             </div>
           </li>
-          <li class="cards__list-item">
-            <img src="./images/card-elbrus.jpg" alt="" class="cards__list-item-image">
-            <div class="cards__list-item-bottom">
-              <h2 class="cards__list-item-title">Гора Эльбрус</h2>
-              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
+          <li class="card">
+            <img src="./images/card-elbrus.jpg" alt="Гора Эльбрус" class="card__image">
+            <div class="card__bottom">
+              <h2 class="card__title">Гора Эльбрус</h2>
+              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
             </div>
           </li>
-          <li class="cards__list-item">
-            <img src="./images/card-vladivostok.jpg" alt="" class="cards__list-item-image">
-            <div class="cards__list-item-bottom">
-              <h2 class="cards__list-item-title">Владивосток</h2>
-              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
+          <li class="card">
+            <img src="./images/card-vladivostok.jpg" alt="Владивосток" class="card__image">
+            <div class="card__bottom">
+              <h2 class="card__title">Владивосток</h2>
+              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
             </div>
           </li>
-          <li class="cards__list-item">
-            <img src="./images/card-karachaevsk.jpg" alt="" class="cards__list-item-image">
-            <div class="cards__list-item-bottom">
-              <h2 class="cards__list-item-title">Карачаево-Черкессия</h2>
-              <button class="button cards__list-item-fav-button" aria-label="Переключить избранное"></button>
+          <li class="card">
+            <img src="./images/card-karachaevsk.jpg" alt="Карачаево-Черкессия" class="card__image">
+            <div class="card__bottom">
+              <h2 class="card__title">Карачаево-Черкессия</h2>
+              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
             </div>
           </li>
         </ul>
       </section>
     </main>
-    <footer class="footer section section_size_narrow">
+    <footer class="footer section page__footer">
       <p class="footer__copyright">&copy; 2020 Сушков Антон</p>
     </footer>
   </div>
 
-  <section class="popup-profile-form">
-    <div class="popup-profile-form__container">
-      <button class="button popup-profile-form__button-close" aria-label="Закрыть"></button>
-      <h2 class="popup-profile-form__title">Редактировать профиль</h2>
-      <fieldset class="popup-profile-form__ctrl-texts">
-        <input class="form-input-text popup-profile-form__item-name" type="text" id="name" name="name" placeholder="Имя"
-          required>
-        <input class="form-input-text popup-profile-form__item-about" type="text" id="about" name="about"
-          placeholder="О себе" required>
-      </fieldset>
-      <button class="button popup-profile-form__button-save">Сохранить</button>
+  <div class="popup">
+
+    <div class="popup__container">
+      <button class="button popup__button-close" type="button" aria-label="Закрыть"></button>
+      <div class="popup__box">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form" name="profile-edit-form">
+          <input class="popup__form-input popup__form-input_id_name" type="text" id="name" name="name" placeholder="Имя"
+            required>
+          <input class="popup__form-input popup__form-input_id_about" type="text" id="about" name="about"
+            placeholder="О себе" required>
+          <button class="button popup__button-save" type="submit">Сохранить</button>
+        </form>
+      </div>
     </div>
-  </section>
+
+  </div>
   <script src="./scripts/main.js"></script>
 </body>
 

@@ -1,4 +1,4 @@
-.popup-profile-form__button-save {
+.popup__button-save {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -9,15 +9,16 @@
   height: 50px;
   background-color: #000;
   border: none;
+  border-radius: 2px;
   margin: 0 auto;
 }
 
-.popup-profile-form__button-save:hover {
+.popup__button-save:hover {
   opacity: 0.8;
 }
 
 @media screen and (max-width: 600px) {
-  .popup-profile-form__button-save {
+  .popup__button-save {
     height: 46px;
     font-size: 14px;
     line-height: 17px;

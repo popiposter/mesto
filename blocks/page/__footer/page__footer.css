@@ -1,9 +1,9 @@
-.section_size_narrow {
+.page__footer {
   max-width: 68.75%;
 }
 
 @media screen and (max-width: 460px) {
-  .section_size_narrow {
+  .page__footer {
     max-width: 88.125%;
   }
 }
