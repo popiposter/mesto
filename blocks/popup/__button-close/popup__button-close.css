@@ -1,10 +1,6 @@
 .popup__button-close {
-  /* position: absolute;
-  top: 0;
-  right: 0; */
   width: 40px;
   height: 40px;
-  /* transform: translate(100%, -100%); */
   background-image: url(../../../images/form-close.svg);
   background-position: center;
   border: none;
@@ -17,7 +13,6 @@
     width: 26px;
     height: 26px;
     margin-bottom: 14px;
-    /* transform: translate(0, -150%); */
     background-image: url(../../../images/form-close-small.svg);
   }
 }
