@@ -1,4 +1,4 @@
-.card__fav-button {
+.card__fav-btn {
   width: 22px;
   height: 19px;
   background-color: rgba(0, 0, 0, 0);
@@ -8,6 +8,6 @@
   border-radius: 0;
 }
 
-.card__fav-button:hover {
+.card__fav-btn:hover {
   opacity: 0.5;
 }

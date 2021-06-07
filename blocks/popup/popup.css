@@ -9,5 +9,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
 }

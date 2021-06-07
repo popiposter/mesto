@@ -2,101 +2,97 @@
 <html lang="ru">
 
 <head>
+  <link rel="stylesheet" type="text/css" href="blocks/popup/__image/popup__image.css"/>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
+  <link href="./pages/index.css" rel="stylesheet">
 </head>
 
 <body class="page">
-  <div class="page__container">
-    <header class="header section page__header">
-      <a href="#" class="header__logo">
-        <img src="./images/header-logo.svg" alt="Логотип Место Россия" class="header__logo-img">
-      </a>
-    </header>
-    <main class="content page__content">
-      <section class="profile section content__section">
-        <img src="./images/profile-avatar.jpg" alt="Аватар профиля" class="profile__avatar">
-        <div class="profile__info">
-          <div class="profile__first-row">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="button profile__edit-info" type="button" aria-label="Редактировать профиль"></button>
-          </div>
-          <p class="profile__about">Исследователь океана</p>
+<div class="page__container">
+  <header class="header section page__header">
+    <a class="header__logo" href="#">
+      <img alt="Логотип Место Россия" class="header__logo-img" src="./images/header-logo.svg">
+    </a>
+  </header>
+  <main class="content page__content">
+    <section class="profile section content__section">
+      <img alt="Аватар профиля" class="profile__avatar" src="./images/profile-avatar.jpg">
+      <div class="profile__info">
+        <div class="profile__first-row">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button aria-label="Редактировать профиль" class="button profile__edit-info" type="button"></button>
         </div>
-        <button class="button profile__add" type="button" aria-label="Добавить"></button>
-      </section>
-      <section class="cards section content__section">
-        <ul class="cards__list">
-          <li class="card">
-            <img src="./images/card-vladivostok.jpg" alt="Карачаевск" class="card__image">
-            <div class="card__bottom">
-              <h2 class="card__title">Карачаевск</h2>
-              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img src="./images/card-khibiny.jpg" alt="Хибины" class="card__image">
-            <div class="card__bottom">
-              <h2 class="card__title">Хибины</h2>
-              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img src="./images/card-dombay.jpg" alt="Домбай" class="card__image">
-            <div class="card__bottom">
-              <h2 class="card__title">Домбай</h2>
-              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img src="./images/card-elbrus.jpg" alt="Гора Эльбрус" class="card__image">
-            <div class="card__bottom">
-              <h2 class="card__title">Гора Эльбрус</h2>
-              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img src="./images/card-vladivostok.jpg" alt="Владивосток" class="card__image">
-            <div class="card__bottom">
-              <h2 class="card__title">Владивосток</h2>
-              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
-            </div>
-          </li>
-          <li class="card">
-            <img src="./images/card-karachaevsk.jpg" alt="Карачаево-Черкессия" class="card__image">
-            <div class="card__bottom">
-              <h2 class="card__title">Карачаево-Черкессия</h2>
-              <button class="button card__fav-button" type="button" aria-label="Переключить избранное"></button>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </main>
-    <footer class="footer section page__footer">
-      <p class="footer__copyright">&copy; 2020 Сушков Антон</p>
-    </footer>
-  </div>
-
-  <div class="popup">
-
-    <div class="popup__container">
-      <button class="button popup__button-close" type="button" aria-label="Закрыть"></button>
-      <div class="popup__box">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="profile-edit-form">
-          <input class="popup__form-input popup__form-input_id_name" type="text" id="name" name="name" placeholder="Имя"
-            required>
-          <input class="popup__form-input popup__form-input_id_about" type="text" id="about" name="about"
-            placeholder="О себе" required>
-          <button class="button popup__button-save" type="submit">Сохранить</button>
-        </form>
+        <p class="profile__about">Исследователь океана</p>
       </div>
-    </div>
+      <button aria-label="Добавить" class="button profile__add" type="button"></button>
+    </section>
+    <section class="cards section content__section">
+      <ul class="cards__list">
+      </ul>
+    </section>
+  </main>
+  <footer class="footer section page__footer">
+    <p class="footer__copyright">&copy; 2020 Сушков Антон</p>
+  </footer>
+</div>
 
+<div class="popup popup_id_form">
+
+  <div class="popup__container">
+    <button aria-label="Закрыть" class="button popup__button-close popup__button-close_id_form" type="button"></button>
+    <div class="popup__box">
+      <h2 class="popup__title"></h2>
+      <form class="popup__form popup__form_id_profile popup__form_hidden">
+        <label>
+          <input class="popup__form-input popup__form-input_id_profile-name" placeholder="Имя" required type="text">
+        </label>
+        <label>
+          <input class="popup__form-input popup__form-input_id_profile-about" placeholder="О себе" type="text">
+        </label>
+        <button class="button popup__button-save popup__button-save_id_save" type="submit">Сохранить</button>
+      </form>
+      <form class="popup__form popup__form_id_add-card popup__form_hidden">
+        <label>
+          <input class="popup__form-input popup__form-input_id_add-card-name" placeholder="Название" required
+                 type="text">
+        </label>
+        <label>
+          <input class="popup__form-input popup__form-input_id_add-card-link" placeholder="Ссылка на картинку"
+                 required
+                 type="text">
+        </label>
+        <button class="button popup__button-save popup__button-save_id_add" type="submit">Создать</button>
+      </form>
+    </div>
   </div>
-  <script src="./scripts/main.js"></script>
+
+</div>
+
+<div class="popup popup_id_image-view">
+  <div class="popup__container">
+    <button aria-label="Закрыть" class="button popup__button-close popup__button-close_id_image" type="button"></button>
+    <figure class="popup__figure">
+      <img src="" alt="" class="popup__image">
+      <figcaption class="popup__image-caption"></figcaption>
+    </figure>
+  </div>
+</div>
+
+<template id="card-template">
+  <li class="card">
+    <div class="card__image">
+      <button aria-label="Удалить" class="button card__delete_btn" type="button"></button>
+    </div>
+    <div class="card__bottom">
+      <h2 class="card__title"></h2>
+      <button aria-label="Переключить избранное" class="button card__fav-btn" type="button"></button>
+    </div>
+  </li>
+</template>
+
+<script src="./scripts/main.js"></script>
 </body>
 
 </html>
