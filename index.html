@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="blocks/popup/__image/popup__image.css"/>
+  <link href="blocks/popup/__image/popup__image.css" rel="stylesheet" type="text/css"/>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Mesto</title>
@@ -38,31 +38,39 @@
   </footer>
 </div>
 
-<div class="popup popup_id_form">
+<div class="popup popup_id_profile">
 
   <div class="popup__container">
-    <button aria-label="Закрыть" class="button popup__button-close popup__button-close_id_form" type="button"></button>
+    <button aria-label="Закрыть" class="button popup__button-close" type="button"></button>
     <div class="popup__box">
-      <h2 class="popup__title"></h2>
-      <form class="popup__form popup__form_id_profile popup__form_hidden">
-        <label>
-          <input class="popup__form-input popup__form-input_id_profile-name" placeholder="Имя" required type="text">
-        </label>
-        <label>
-          <input class="popup__form-input popup__form-input_id_profile-about" placeholder="О себе" type="text">
-        </label>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form popup__form_id_profile" name="form_id_profile">
+        <input class="popup__form-input popup__form-input_id_profile-name" name="input_id_profile-name"
+               placeholder="Имя" required
+               type="text">
+        <input class="popup__form-input popup__form-input_id_profile-about" name="input_id_profile-about"
+               placeholder="О себе"
+               type="text">
         <button class="button popup__button-save popup__button-save_id_save" type="submit">Сохранить</button>
       </form>
-      <form class="popup__form popup__form_id_add-card popup__form_hidden">
-        <label>
-          <input class="popup__form-input popup__form-input_id_add-card-name" placeholder="Название" required
-                 type="text">
-        </label>
-        <label>
-          <input class="popup__form-input popup__form-input_id_add-card-link" placeholder="Ссылка на картинку"
-                 required
-                 type="text">
-        </label>
+    </div>
+  </div>
+
+</div>
+
+<div class="popup popup_id_add-card">
+
+  <div class="popup__container">
+    <button aria-label="Закрыть" class="button popup__button-close" type="button"></button>
+    <div class="popup__box">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form popup__form_id_add-card" name="form_id_add-card">
+        <input class="popup__form-input popup__form-input_id_add-card-name" name="input_id_add-card-name"
+               placeholder="Название"
+               required type="text">
+        <input class="popup__form-input popup__form-input_id_add-card-link" name="input_id_add-card-link"
+               placeholder="Ссылка на картинку"
+               required type="url">
         <button class="button popup__button-save popup__button-save_id_add" type="submit">Создать</button>
       </form>
     </div>
@@ -72,9 +80,9 @@
 
 <div class="popup popup_id_image-view">
   <div class="popup__container">
-    <button aria-label="Закрыть" class="button popup__button-close popup__button-close_id_image" type="button"></button>
+    <button aria-label="Закрыть" class="button popup__button-close" type="button"></button>
     <figure class="popup__figure">
-      <img src="#" alt="" class="popup__image">
+      <img alt="" class="popup__image" src="#">
       <figcaption class="popup__image-caption"></figcaption>
     </figure>
   </div>
@@ -92,6 +100,7 @@
   </li>
 </template>
 
+<script src="scripts/initial-cards.js"></script>
 <script src="./scripts/main.js"></script>
 </body>
 

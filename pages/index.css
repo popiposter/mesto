@@ -34,7 +34,7 @@
 @import url(../blocks/card/__bottom/card__bottom.css);
 @import url(../blocks/card/__title/card__title.css);
 @import url(../blocks/card/__fav-btn/card__fav-btn.css);
-@import url(../blocks/card/_favored/card_favored.css);
+@import url(../blocks/card/__fav-btn/_favored/card__fav-btn_favored.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/page/__footer/page__footer.css);
