@@ -2,8 +2,8 @@ const buttonEditProfile = document.querySelector('.profile__edit-info');
 const buttonAddCard = document.querySelector('.profile__add');
 
 const popupImageView = document.querySelector('.popup_id_image-view');
-const ImageViewImage = popupImageView.querySelector('.popup__image');
-const ImageViewCaption = popupImageView.querySelector('.popup__image-caption');
+const imageViewImage = popupImageView.querySelector('.popup__image');
+const imageViewCaption = popupImageView.querySelector('.popup__image-caption');
 
 const popupProfile = document.querySelector('.popup_id_profile');
 const profileForm = popupProfile.querySelector('.popup__form_id_profile');
@@ -37,7 +37,11 @@ function createCard(cardData) {
 
   cardImg.style.backgroundImage = "url('" + cardData.link + "')";
 
-  cardImg.addEventListener('click', addCardBtnClick);
+  cardImg.addEventListener('click', (evt) => {
+    if (evt.target === evt.currentTarget) {
+      setPopupImageView(cardData);
+    }
+  });
   deleteBtn.addEventListener('click', deleteCard);
   favBtn.addEventListener('click', toggleFavorite);
 
@@ -61,30 +65,13 @@ function addCards(cardsList) {
   });
 }
 
-function addCardBtnClick(evt) {
-  if (evt.target !== evt.currentTarget) {
-    return;
-  }
+function setPopupImageView(cardData) {
+  imageViewImage.setAttribute('src', cardData.link);
+  imageViewImage.setAttribute('alt', cardData.name);
 
-  const cardData = getCardDataFromImage(evt.target);
-  setPopupImageView(cardData);
+  imageViewCaption.textContent = cardData.name;
 
   openPopup(popupImageView);
-}
-
-function getCardDataFromImage(cardImage) {
-  const parentCard = cardImage.closest('.card');
-  const cardName = parentCard.querySelector('.card__title').textContent;
-  const cardUrl = cardImage.style.backgroundImage.slice(4, -1).replace(/"/g, "");
-
-  return {name: cardName, link: cardUrl};
-}
-
-function setPopupImageView(cardData) {
-  ImageViewImage.setAttribute('src', cardData.link);
-  ImageViewImage.setAttribute('alt', cardData.name);
-
-  ImageViewCaption.textContent = cardData.name;
 }
 
 function openPopup(popup) {
@@ -98,16 +85,7 @@ function closePopupBtnClick(evt) {
 }
 
 function closePopup(popup) {
-  if (popup === popupProfile || popupAddCard) {
-    resetForms();
-  }
-
   popup.classList.remove(classPopupOpened);
-}
-
-function resetForms() {
-  profileForm.reset();
-  addCardForm.reset();
 }
 
 function openProfilePopup() {
@@ -139,6 +117,8 @@ function addCardFormSubmit(evt) {
   addCard(cardElement, 'end');
 
   closePopup(popupAddCard);
+
+  addCardForm.reset();
 }
 
 function deleteCard(evt) {
