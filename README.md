@@ -1,4 +1,4 @@
-# Проект 4: Место
+# Проект 4, 5, 6: Место
 
 [Ссылка на GH Pages](https://popiposter.github.io/mesto/index.html)
 
@@ -17,6 +17,7 @@
 6. querySelector.
 7. EventListener.
 8. Редактирование содержимого элементов.
+9. Лайв-валидация.
 
 **Figma**
 
