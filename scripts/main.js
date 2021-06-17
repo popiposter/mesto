@@ -175,7 +175,7 @@ function setEventListeners() {
       // Если добавлять сразу в popup.css, при загрузке сраницы запускается transition на visibility.
       popup.classList.add(classPopupAnimated);
 
-      popup.addEventListener('click', function (evt) {
+      popup.addEventListener('mousedown', function (evt) {
           if (isCurrentTarget(evt)) {
             closePopup(popup);
           }
