@@ -18,15 +18,19 @@ import {
   buttonAddCard,
   classDeleteCardBtn,
   classFavCardBtn,
-  buttonsClosePopup,
-  popups,
-  classPopupAnimated
+  formList,
+  formData
 } from "../scripts/constants.js";
 import {initialCards} from '../scripts/initial-cards.js';
 import Card from '../scripts/Card.js';
-import {closePopup, openPopup} from "../scripts/popup.js";
-
-
+import {
+  closePopup,
+  setDefaultProfileInputTexts,
+  openProfilePopup,
+  openAddCardPopup,
+  initPopups
+} from "../scripts/popup.js";
+import FormValidator from "../scripts/FormValidator.js";
 
 const addCard = (cardElement, position = 'start') => {
   if (position === 'start') {
@@ -70,27 +74,6 @@ const toggleFavorite = (evt) => {
   evt.target.classList.toggle(classCardFavored);
 }
 
-const closePopupBtnClick = (evt) => {
-  const parentPopup = evt.target.closest('.popup');
-
-  closePopup(parentPopup);
-}
-
-const openProfilePopup = () => {
-  setDefaultProfileInputTexts();
-
-  openPopup(popupProfile);
-}
-
-const openAddCardPopup = () => {
-  openPopup(popupAddCard);
-}
-
-const setDefaultProfileInputTexts = () => {
-  profileInputName.value = profileTitle.textContent;
-  profileInputAbout.value = profileAbout.textContent;
-}
-
 const profileFormSubmit = () => {
   profileTitle.textContent = profileInputName.value;
   profileAbout.textContent = profileInputAbout.value;
@@ -98,7 +81,15 @@ const profileFormSubmit = () => {
   closePopup(popupProfile);
 }
 
-const setEventListeners = () => {
+const initPage = () => {
+  addCards(initialCards);
+  setDefaultProfileInputTexts();
+
+  formList.forEach((formElement) => {
+    const formValidator = new FormValidator(formData, formElement);
+    formValidator.enableValidation();
+  });
+
   buttonEditProfile.addEventListener('click', openProfilePopup);
   profileForm.addEventListener('submit', profileFormSubmit);
 
@@ -111,27 +102,11 @@ const setEventListeners = () => {
     } else if (evt.target.classList.contains(classFavCardBtn)) {
       toggleFavorite(evt);
     }
-  })
+  });
 
-  buttonsClosePopup.forEach(closeBtn => {
-    closeBtn.addEventListener('click', closePopupBtnClick);
-  })
-
-  window.addEventListener('load', () => {
-    popups.forEach(popup => {
-      // Если добавлять сразу в popup.css, при загрузке сраницы запускается transition на visibility.
-      popup.classList.add(classPopupAnimated);
-
-      popup.addEventListener('mousedown', function (evt) {
-          if (evt.target === evt.currentTarget) {
-            closePopup(popup);
-          }
-        }
-      )
-    });
-  })
+  initPopups();
 }
 
-addCards(initialCards);
-setDefaultProfileInputTexts();
-setEventListeners();
+initPage();
+
+

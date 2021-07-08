@@ -33,3 +33,14 @@ export const classFavCardBtn = 'card__fav-btn';
 export const classButtonDisabled = 'popup__button-save_disabled';
 
 export const cardTemplateSelector = '.card-template';
+
+export const formList = Array.from(document.querySelectorAll('.popup__form'));
+
+export const formData = {
+  inputSelector: '.popup__form-input',
+  submitButtonSelector: '.popup__button-save',
+  inactiveButtonClass: 'popup__button-save_disabled',
+  inputErrorClass: 'popup__form-input_type_error',
+  inputErrorActiveClass: 'popup__form-input-error_active',
+  errorSelector: '.popup__form-input-error'
+};
