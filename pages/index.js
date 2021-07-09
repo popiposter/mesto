@@ -28,32 +28,30 @@ import {
   setDefaultProfileInputTexts,
   openProfilePopup,
   openAddCardPopup,
+  openCardPopup,
   initPopups
 } from "../scripts/popup.js";
 import FormValidator from "../scripts/FormValidator.js";
 
-const addCard = (cardElement, position = 'start') => {
-  if (position === 'start') {
-    cardsList.append(cardElement);
-  } else {
-    cardsList.prepend(cardElement);
-  }
+const addCard = (cardElement) => {
+  cardsList.prepend(cardElement);
 }
 
 const addCards = (cardsList) => {
-  cardsList.forEach(cardData => {
-    const newCard = new Card(cardData, cardTemplateSelector);
-    const cardElement = newCard.generateCard();
-    addCard(cardElement);
+  cardsList.reverse().forEach(cardData => {
+    createCard(cardData);
   });
 }
 
-const addCardFormSubmit = () => {
-  const cardData = {name: addCardInputName.value, link: addCardInputLink.value};
-  const newCard = new Card(cardData, cardTemplateSelector);
+const createCard = (cardData) => {
+  const newCard = new Card(cardData, cardTemplateSelector, openCardPopup);
   const cardElement = newCard.generateCard();
 
-  addCard(cardElement, 'end');
+  addCard(cardElement);
+}
+
+const addCardFormSubmit = () => {
+  createCard({name: addCardInputName.value, link: addCardInputLink.value});
 
   closePopup(popupAddCard);
 
@@ -65,7 +63,7 @@ const addCardFormSubmit = () => {
 const deleteCard = (evt) => {
   const parentCard = evt.target.closest('.card');
 
-  if (!(typeof parentCard === undefined)) {
+  if (parentCard) {
     parentCard.remove();
   }
 }
@@ -81,7 +79,7 @@ const profileFormSubmit = () => {
   closePopup(popupProfile);
 }
 
-const initPage = () => {
+(() => {
   addCards(initialCards);
   setDefaultProfileInputTexts();
 
@@ -105,8 +103,7 @@ const initPage = () => {
   });
 
   initPopups();
-}
+})()
 
-initPage();
 
 

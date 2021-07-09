@@ -1,7 +1,7 @@
 import {
   buttonsClosePopup, classPopupAnimated,
-  classPopupOpened, formData,
-  popupAddCard,
+  classPopupOpened, formData, imageViewCaption, imageViewImage,
+  popupAddCard, popupImageView,
   popupProfile, popups, profileAbout,
   profileInputAbout,
   profileInputName,
@@ -45,6 +45,15 @@ export const openProfilePopup = () => {
 
 export const openAddCardPopup = () => {
   openPopup(popupAddCard);
+}
+
+export const openCardPopup = (name, link) => {
+  imageViewImage.setAttribute('src', link);
+  imageViewImage.setAttribute('alt', name);
+
+  imageViewCaption.textContent = name;
+
+  openPopup(popupImageView);
 }
 
 export const setDefaultProfileInputTexts = () => {

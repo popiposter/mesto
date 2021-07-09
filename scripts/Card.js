@@ -1,11 +1,9 @@
-import {popupImageView, imageViewImage, imageViewCaption} from './constants.js';
-import {openPopup} from "./popup.js";
-
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -31,12 +29,7 @@ export default class Card {
       return;
     }
 
-    imageViewImage.setAttribute('src', this._link);
-    imageViewImage.setAttribute('alt', this._name);
-
-    imageViewCaption.textContent = this._name;
-
-    openPopup(popupImageView);
+    this._handleCardClick(this._name, this._link);
   }
 
   _setEventListeners() {
