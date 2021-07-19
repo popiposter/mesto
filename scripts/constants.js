@@ -1,7 +1,35 @@
+export const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
 export const buttonEditProfile = document.querySelector('.profile__edit-info');
 export const buttonAddCard = document.querySelector('.profile__add');
 
-export const popupImageView = document.querySelector('.popup_id_image-view');
+export const popupImageViewSelector = '.popup_id_image-view';
+export const popupImageView = document.querySelector(popupImageViewSelector);
 export const imageViewCaption = popupImageView.querySelector('.popup__image-caption');
 export const imageViewImage = popupImageView.querySelector('.popup__image');
 
@@ -18,12 +46,14 @@ export const addCardSaveBtn = addCardForm.querySelector('.popup__button-save_id_
 
 export const popups = document.querySelectorAll('.popup');
 
-export const buttonsClosePopup = document.querySelectorAll('.popup__button-close');
+export const popupCloseSelector = '.popup__button-close';
+export const buttonsClosePopup = document.querySelectorAll(popupCloseSelector);
 
 export const profileTitle = document.querySelector('.profile__title');
 export const profileAbout = document.querySelector('.profile__about');
 
-export const cardsList = document.querySelector('.cards__list');
+export const cardListSelector = '.cards__list';
+export const cardsList = document.querySelector(cardListSelector);
 
 export const classPopupOpened = 'popup_opened';
 export const classCardFavored = 'card__fav-btn_favored';
