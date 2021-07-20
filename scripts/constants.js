@@ -38,7 +38,9 @@ export const profileForm = popupProfile.querySelector('.popup__form_id_profile')
 export const profileInputName = profileForm.querySelector('.popup__form-input_id_profile-name');
 export const profileInputAbout = profileForm.querySelector('.popup__form-input_id_profile-about');
 
+export const popupAddCardSelector = '.popup_id_add-card';
 export const popupAddCard = document.querySelector('.popup_id_add-card');
+export const addCardFormSelector = '.popup__form_id_add-card';
 export const addCardForm = popupAddCard.querySelector('.popup__form_id_add-card');
 export const addCardInputName = addCardForm.querySelector('.popup__form-input_id_add-card-name');
 export const addCardInputLink = addCardForm.querySelector('.popup__form-input_id_add-card-link');
@@ -64,6 +66,7 @@ export const classButtonDisabled = 'popup__button-save_disabled';
 
 export const cardTemplateSelector = '.card-template';
 
+export const formSelector = '.popup__form';
 export const formList = Array.from(document.querySelectorAll('.popup__form'));
 
 export const formData = {
