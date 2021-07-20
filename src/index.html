@@ -2,23 +2,21 @@
 <html lang="ru">
 
 <head>
-  <link href="blocks/popup/__image/popup__image.css" rel="stylesheet" type="text/css"/>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Mesto</title>
-  <link href="./pages/index.css" rel="stylesheet">
 </head>
 
 <body class="page">
 <div class="page__container">
   <header class="header section page__header">
     <a class="header__logo" href="#" target="_blank">
-      <img alt="Логотип Место Россия" class="header__logo-img" src="./images/header-logo.svg">
+      <img alt="Логотип Место Россия" class="header__logo-img" src="<%=require('./images/header-logo.svg')%>">
     </a>
   </header>
   <main class="content page__content">
     <section class="profile section content__section">
-      <img alt="Аватар профиля" class="profile__avatar" src="./images/profile-avatar.jpg">
+      <img alt="Аватар профиля" class="profile__avatar" src="<%=require('./images/profile-avatar.jpg')%>">
       <div class="profile__info">
         <div class="profile__first-row">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -46,14 +44,14 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form popup__form_id_profile" name="form_id_profile" novalidate>
         <label class="popup__form-field">
-          <input class="popup__form-input popup__form-input_id_profile-name" name="input_id_profile-name"
+          <input class="popup__form-input popup__form-input_id_profile-name" name="name"
                  id="profile-name"
                  placeholder="Имя" required
                  type="text" minlength="2" maxlength="40">
           <span class="popup__form-input-error profile-name-error"></span>
         </label>
         <label class="popup__form-field">
-          <input class="popup__form-input popup__form-input_id_profile-about" name="input_id_profile-about"
+          <input class="popup__form-input popup__form-input_id_profile-about" name="about"
                  id="profile-about"
                  placeholder="О себе" required
                  type="text" minlength="2" maxlength="200">
@@ -116,12 +114,6 @@
   </li>
 </template>
 
-<script type="module" src="scripts/constants.js"></script>
-<script type="module" src="scripts/popup.js"></script>
-<script type="module" src="scripts/Card.js"></script>
-<script type="module" src="scripts/initial-cards.js"></script>
-<script type="module" src="scripts/FormValidator.js"></script>
-<script type="module" src="pages/index.js"></script>
 </body>
 
 </html>
