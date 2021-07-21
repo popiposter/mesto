@@ -29,17 +29,12 @@ export const buttonEditProfile = document.querySelector('.profile__edit-info');
 export const buttonAddCard = document.querySelector('.profile__add');
 
 export const popupImageViewSelector = '.popup_id_image-view';
-export const popupImageView = document.querySelector(popupImageViewSelector);
-export const imageViewCaption = popupImageView.querySelector('.popup__image-caption');
-export const imageViewImage = popupImageView.querySelector('.popup__image');
 
 export const popupProfileSelector = '.popup_id_profile';
-export const profileFormSelector = '.popup__form_id_profile';
 export const profileInputNameElement = document.querySelector('.popup__form-input_id_profile-name');
 export const profileInputAboutElement = document.querySelector('.popup__form-input_id_profile-about');
 
 export const popupAddCardSelector = '.popup_id_add-card';
-export const addCardFormSelector = '.popup__form_id_add-card';
 
 export const popupCloseSelector = '.popup__button-close';
 
@@ -56,7 +51,16 @@ export const favCardSelector = 'card__fav-btn';
 
 export const cardTemplateSelector = '.card-template';
 
-export const formList = Array.from(document.querySelectorAll('.popup__form'));
+export const addCardFormElement = document.querySelector('.popup__form_id_add-card');
+export const profileFormElement = document.querySelector('.popup__form_id_profile');
+
+export const getPopupConfig = (popupSelector) => {
+  return {
+    popupSelector: popupSelector,
+    classPopupOpened: classPopupOpened,
+    popupCloseSelector: popupCloseSelector
+  };
+};
 
 export const formData = {
   inputSelector: '.popup__form-input',
@@ -65,4 +69,11 @@ export const formData = {
   inputErrorClass: 'popup__form-input_type_error',
   inputErrorActiveClass: 'popup__form-input-error_active',
   errorSelector: '.popup__form-input-error'
+};
+
+export const getFormConfig = (formElement) => {
+  return {
+    formElement: formElement,
+    inputSelector: formData.inputSelector
+  }
 };

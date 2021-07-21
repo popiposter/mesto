@@ -16,25 +16,44 @@ export default class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._imageElement = this._element.querySelector('.card__image');
+    this._titleElement = this._element.querySelector('.card__title');
+    this._likeButton = this._element.querySelector('.card__fav-btn');
+    this._deleteButton = this._element.querySelector('.card__delete_btn');
+
     this._setEventListeners();
 
-    this._element.querySelector('.card__image').style.backgroundImage = `url(${this._link})`;
-    this._element.querySelector('.card__title').textContent = this._name;
+    this._imageElement.style.backgroundImage = `url(${this._link})`;
+    // Как альтернативу alt используем title у div.
+    this._imageElement.setAttribute('title', this._name);
+    this._titleElement.textContent = this._name;
 
     return this._element;
   }
 
-  _handleOpenPopup(evt) {
-    if (evt.target !== evt.currentTarget) {
-      return;
-    }
+  _handleDelete() {
+    this._element.remove();
+  }
 
-    this._handleCardClick({name: this._name, link: this._link});
+  _handleToggleFavorite() {
+    this._likeButton.classList.toggle('card__fav-btn_favored');
+  }
+
+  _handleOpenPopup(data) {
+    this._handleCardClick(data);
   }
 
   _setEventListeners() {
-    this._element.querySelector('.card__image').addEventListener('click', (evt) => {
-      this._handleOpenPopup(evt);
+    this._deleteButton.addEventListener('click', this._handleDelete.bind(this));
+
+    this._imageElement.addEventListener('click', (evt) => {
+      if (evt.target !== evt.currentTarget) {
+        return;
+      }
+
+      this._handleOpenPopup({name: this._name, link: this._link});
     });
+
+    this._likeButton.addEventListener('click', this._handleToggleFavorite.bind(this));
   }
 }

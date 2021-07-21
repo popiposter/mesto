@@ -7,6 +7,7 @@ export default class FormValidator {
     this._inputErrorActiveClass = formData.inputErrorActiveClass;
     this._formElement = formElement;
     this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
   }
 
   _showInputError = (inputElement, errorMessage) => {
@@ -35,42 +36,45 @@ export default class FormValidator {
     }
   };
 
-  _hasInvalidInput = (inputList) => {
-    return inputList.some((inputElement) => {
+  _hasInvalidInput = () => {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     })
   };
 
-  _toggleButtonState = (buttonElement) => {
-    if (this._hasInvalidInput(this._inputList)) {
-      buttonElement.classList.add(this._inactiveButtonClass);
+  toggleButtonState = () => {
+    if (this._hasInvalidInput()) {
+      this._buttonElement.classList.add(this._inactiveButtonClass);
     } else {
-      buttonElement.classList.remove(this._inactiveButtonClass);
+      this._buttonElement.classList.remove(this._inactiveButtonClass);
     }
   };
 
   _setValidationEventListeners = () => {
-    const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
-    this._toggleButtonState(buttonElement);
+    this.toggleButtonState();
 
     const thisObj = this;
 
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', function () {
         thisObj._checkInputValidity(inputElement);
-        thisObj._toggleButtonState(buttonElement);
+        thisObj.toggleButtonState();
       });
     });
   }
 
-  enableValidation() {
-    const thisObj = this;
+  resetErrors() {
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
+  }
 
-    this._formElement.addEventListener('submit', function (evt) {
+  enableValidation() {
+    this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
 
       // При нажатии Enter нужно запретить submit невалидной формы.
-      if (thisObj._hasInvalidInput(thisObj._inputList)) {
+      if (this._hasInvalidInput()) {
         evt.stopImmediatePropagation();
       }
     });
