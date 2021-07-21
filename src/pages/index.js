@@ -37,20 +37,21 @@ const openFormPopup = (popup, formValidator) => {
 const cardPopup = new PopupWithImage(getPopupConfig(popupImageViewSelector));
 cardPopup.setEventListeners();
 
-const addCard = (data, cards) => {
+const createCardElement = (data) => {
   const card = new Card({
     data,
-    handleCardClick: () => {
+    handleCardClick: (data) => {
       cardPopup.open(data);
     }
   }, cardTemplateSelector);
-  const cardElement = card.generateCard();
-  cards.addItem(cardElement);
+
+  return card.generateCard();
 };
 
 const cardList = new Section({
   renderer: (item) => {
-    addCard(item, cardList);
+    const newCard = createCardElement(item);
+    cardList.addItem(newCard);
   }
 }, cardListSelector);
 
@@ -58,7 +59,8 @@ const addCardPopup = new PopupWithForm(
   getPopupConfig(popupAddCardSelector),
   getFormConfig(addCardFormElement),
   (data) => {
-    addCard(data, cardList);
+    const newCard = createCardElement(data);
+    cardList.prependItem(newCard);
 
     addCardPopup.close();
   }
