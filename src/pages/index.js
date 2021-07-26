@@ -9,7 +9,6 @@ import {
   formData,
   getFormConfig,
   getPopupConfig,
-  initialCards,
   popupAddCardSelector,
   popupImageViewSelector,
   popupProfileSelector,
@@ -19,12 +18,18 @@ import {
   profileInputNameElement,
   profileTitleSelector,
 } from '../utils/constants.js';
+import Api from '../components/Api.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import FormValidator from '../components/FormValidator.js';
+
+const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-26',
+  token: '568f90d1-38c3-4e48-946b-3689db798031'
+});
 
 const openFormPopup = (popup, formValidator) => {
   formValidator.toggleButtonState();
@@ -107,7 +112,14 @@ buttonEditProfile.addEventListener('click', () => {
 
 profilePopup.setEventListeners();
 
-cardList.renderItems(initialCards);
+api.getInitialCards().then(res => {
+  cardList.renderItems(res);
+})
+  .catch(err => {
+    console.log(err);
+  })
+
+// cardList.renderItems(initialCards);
 
 setDefaultUserInfo();
 
