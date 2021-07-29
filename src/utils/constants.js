@@ -1,36 +1,12 @@
-export const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
+export const buttonEditAvatar = document.querySelector('.profile__edit-avatar');
 export const buttonEditProfile = document.querySelector('.profile__edit-info');
 export const buttonAddCard = document.querySelector('.profile__add');
 
+export const popupConfirmSelector = '.popup_id_confirm';
 export const popupImageViewSelector = '.popup_id_image-view';
-
+export const popupEditAvatarSelector = '.popup_id_avatar-edit';
 export const popupProfileSelector = '.popup_id_profile';
+
 export const profileInputNameElement = document.querySelector('.popup__form-input_id_profile-name');
 export const profileInputAboutElement = document.querySelector('.popup__form-input_id_profile-about');
 
@@ -40,25 +16,30 @@ export const popupCloseSelector = '.popup__button-close';
 
 export const profileTitleSelector = '.profile__title';
 export const profileAboutSelector = '.profile__about';
+export const profileAvatarSelector = '.profile__avatar';
 
 export const cardListSelector = '.cards__list';
-export const cardsListElement = document.querySelector(cardListSelector);
 
 export const classPopupOpened = 'popup_opened';
-export const classCardFavored = 'card__fav-btn_favored';
-export const deleteCardSelector = 'card__delete_btn';
-export const favCardSelector = 'card__fav-btn';
 
 export const cardTemplateSelector = '.card-template';
 
+export const confirmFormElement = document.querySelector('.popup__form_id_confirm');
+export const editAvatarFormElement = document.querySelector('.popup__form_id_avatar-edit');
 export const addCardFormElement = document.querySelector('.popup__form_id_add-card');
 export const profileFormElement = document.querySelector('.popup__form_id_profile');
 
-export const getPopupConfig = (popupSelector) => {
+export const editAvatarSaveBtnText = 'Сохранить';
+export const editProfileSaveBtnText = 'Сохранить';
+export const addCardSaveBtnText = 'Создать';
+export const saveBtnTextSaving = 'Сохранение...';
+
+export const getPopupConfig = (popupSelector, saveBtnText) => {
   return {
     popupSelector: popupSelector,
     classPopupOpened: classPopupOpened,
-    popupCloseSelector: popupCloseSelector
+    popupCloseSelector: popupCloseSelector,
+    saveBtnText: saveBtnText
   };
 };
 

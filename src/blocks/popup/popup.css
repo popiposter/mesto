@@ -11,6 +11,6 @@
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   visibility: hidden;
-  transition: visibility 0s, opacity 0.3s ease-in-out;
+  transition: all 0.3s;
   opacity: 0;
 }

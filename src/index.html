@@ -16,13 +16,15 @@
   </header>
   <main class="content page__content">
     <section class="profile section content__section">
-      <img alt="Аватар профиля" class="profile__avatar" src="<%=require('./images/profile-avatar.jpg')%>">
+      <div title="Аватар профиля" class="profile__avatar">
+        <button aria-label="Изменить аватар" class="profile__edit-avatar" type="button"></button>
+      </div>
       <div class="profile__info">
         <div class="profile__first-row">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <h1 class="profile__title"></h1>
           <button aria-label="Редактировать профиль" class="button profile__edit-info" type="button"></button>
         </div>
-        <p class="profile__about">Исследователь океана</p>
+        <p class="profile__about"></p>
       </div>
       <button aria-label="Добавить" class="button profile__add" type="button"></button>
     </section>
@@ -32,7 +34,7 @@
     </section>
   </main>
   <footer class="footer section page__footer">
-    <p class="footer__copyright">&copy; 2020 Сушков Антон</p>
+    <p class="footer__copyright">&copy; 2021 Сушков Антон</p>
   </footer>
 </div>
 
@@ -92,6 +94,41 @@
 
 </div>
 
+<div class="popup popup_id_avatar-edit">
+
+  <div class="popup__container">
+    <button aria-label="Закрыть" class="button popup__button-close" type="button"></button>
+    <div class="popup__box">
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form class="popup__form popup__form_id_avatar-edit" name="form_id_avatar-edit" novalidate>
+        <label class="popup__form-field">
+          <input class="popup__form-input popup__form-input_id_avatar-edit" name="link"
+                 id="avatar-edit-link"
+                 placeholder="Ссылка на картинку"
+                 required type="url">
+          <span class="popup__form-input-error avatar-edit-link-error"></span>
+        </label>
+        <button class="button popup__button-save popup__button-save_id_avatar-edit" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<div class="popup popup_id_confirm">
+
+  <div class="popup__container">
+    <button aria-label="Закрыть" class="button popup__button-close" type="button"></button>
+    <div class="popup__box">
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form class="popup__form popup__form_id_confirm" name="form_id_confirm" novalidate>
+        <button class="button popup__button-save popup__button-save_id_confirm" type="submit">Да</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
 <div class="popup popup_id_image-view">
   <div class="popup__container">
     <button aria-label="Закрыть" class="button popup__button-close" type="button"></button>
@@ -109,7 +146,10 @@
     </div>
     <div class="card__bottom">
       <h2 class="card__title"></h2>
-      <button aria-label="Переключить избранное" class="button card__fav-btn" type="button"></button>
+      <div class="card__like-group">
+        <button aria-label="Переключить избранное" class="button card__fav-btn" type="button"></button>
+        <div class="card__likes">0</div>
+      </div>
     </div>
   </li>
 </template>
