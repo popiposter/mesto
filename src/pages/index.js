@@ -87,11 +87,11 @@ const profilePopup = new PopupWithForm(
       .then(data => {
         userInfo.setUserData(data);
         userInfo.setUserInfo();
+
+        profilePopup.close();
       })
       .catch(err => handleApiError(err))
       .finally(() => profilePopup.resetSaveButtonText());
-
-    profilePopup.close();
   }
 );
 
@@ -105,6 +105,12 @@ const toggleCardLike = (cardId, isLiked) => {
     : api.addCardLike(cardId);
 }
 
+const updateLikes = (card, newData, currentUserId) => {
+  card.setCardData(newData, currentUserId);
+  card.setLikeState();
+  card.setLikesAmount();
+};
+
 const createCardElement = (data, currentUserId) => {
   const card = new Card(
     data,
@@ -116,18 +122,19 @@ const createCardElement = (data, currentUserId) => {
       handleCardLike: (cardId, isLiked) => {
         toggleCardLike(cardId, isLiked)
           .then((data) => {
-            card.setCardData(data, currentUserId);
-            card.setLikeState();
-            card.setLikesAmount();
+            updateLikes(card, data, currentUserId);
           })
           .catch(err => handleApiError(err));
       },
       handleCardDelete: (cardId) => {
         confirmPopup.setSubmitEventListener(() => {
           api.deleteCard(cardId)
-            .then(() => card.removeCardElement())
-            .catch(err => handleApiError(err))
-            .finally(() => confirmPopup.close());
+            .then(() => {
+              card.removeCardElement();
+
+              confirmPopup.close();
+            })
+            .catch(err => handleApiError(err));
         });
         confirmPopup.open();
 
@@ -162,21 +169,16 @@ const addCardPopup = new PopupWithForm(
   }
 )
 
-const userInfoPromise = api.getUserInfo()
-  .then(data => {
-    userInfo.setUserData(data);
-    userInfo.setUserInfo();
-  });
-
-const initialCardsPromise = api.getInitialCards()
-  .then(res => {
-    cardList.renderItems(res);
-  });
-
-const promises = [userInfoPromise, initialCardsPromise];
+const promises = [api.getUserInfo(), api.getInitialCards()];
 
 Promise.all(promises)
-  .then(() => {
+  .then(([userData, initialCards]) => {
+
+    userInfo.setUserData(userData);
+    userInfo.setUserInfo();
+
+    cardList.renderItems(initialCards);
+
     // Аватар.
     const editAvatarFormValidator = new FormValidator(formData, editAvatarFormElement);
     editAvatarFormValidator.enableValidation();
@@ -196,7 +198,7 @@ Promise.all(promises)
     });
 
     profilePopup.setEventListeners();
-    // Новое карточка.
+    // Новая карточка.
     const addCardFormValidator = new FormValidator(formData, addCardFormElement);
     addCardFormValidator.enableValidation();
 
